@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import './utils/responsive_layout.dart';
-import './colors.dart';
+import 'utils/colors.dart';
+import './responsive/responsive_layout.dart';
 import './screens/mobile_screen.dart';
 import './screens/web_screen.dart';
 

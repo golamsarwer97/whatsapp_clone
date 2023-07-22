@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
+import '../utils/colors.dart';
+import '../widgets/contact_list.dart';
 
 class MobileScreen extends StatelessWidget {
   const MobileScreen({Key? key}) : super(key: key);
@@ -44,6 +45,15 @@ class MobileScreen extends StatelessWidget {
               Tab(text: 'STATUS'),
               Tab(text: 'CALLS'),
             ],
+          ),
+        ),
+        body: ContactList(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: tabColor,
+          child: const Icon(
+            Icons.comment,
+            color: Colors.white,
           ),
         ),
       ),
