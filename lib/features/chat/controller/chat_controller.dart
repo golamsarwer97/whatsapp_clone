@@ -53,19 +53,19 @@ class ChatController {
           (value) => chatRepository.sendTextMessage(
             context: context,
             text: text,
-            recieverUserId: recieverUserId,
+            receiverUserId: recieverUserId,
             senderUser: value!,
             messageReply: messageReply,
             isGroupChat: isGroupChat,
           ),
         );
-    ref.read(messageReplyProvider.state).update((state) => null);
+    ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
   void sendFileMessage(
     BuildContext context,
     File file,
-    String recieverUserId,
+    String receiverUserId,
     MessageEnum messageEnum,
     bool isGroupChat,
   ) {
@@ -74,7 +74,7 @@ class ChatController {
           (value) => chatRepository.sendFileMessage(
             context: context,
             file: file,
-            recieverUserId: recieverUserId,
+            receiverUserId: receiverUserId,
             senderUserData: value!,
             messageEnum: messageEnum,
             ref: ref,
@@ -82,13 +82,13 @@ class ChatController {
             isGroupChat: isGroupChat,
           ),
         );
-    ref.read(messageReplyProvider.state).update((state) => null);
+    ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
   void sendGIFMessage(
     BuildContext context,
     String gifUrl,
-    String recieverUserId,
+    String receiverUserId,
     bool isGroupChat,
   ) {
     final messageReply = ref.read(messageReplyProvider);
@@ -100,23 +100,23 @@ class ChatController {
           (value) => chatRepository.sendGIFMessage(
             context: context,
             gifUrl: newgifUrl,
-            recieverUserId: recieverUserId,
+            receiverUserId: receiverUserId,
             senderUser: value!,
             messageReply: messageReply,
             isGroupChat: isGroupChat,
           ),
         );
-    ref.read(messageReplyProvider.state).update((state) => null);
+    ref.read(messageReplyProvider.notifier).update((state) => null);
   }
 
   void setChatMessageSeen(
     BuildContext context,
-    String recieverUserId,
+    String receiverUserId,
     String messageId,
   ) {
     chatRepository.setChatMessageSeen(
       context,
-      recieverUserId,
+      receiverUserId,
       messageId,
     );
   }
